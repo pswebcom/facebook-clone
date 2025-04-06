@@ -12,7 +12,7 @@ $query = mysqli_query($conn, "INSERT INTO test  VALUES(NULL,'kaka')");
 
 <head>
     <title>facebook clone</title>
-</head>`
+</head>
 
 <body>
     Hello
