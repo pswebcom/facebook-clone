@@ -54,27 +54,18 @@ if(isset($_POST['btn_register'])){
     if($email==$email2){
 
         //check if email format is valid
-
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             //$email=validated version of $email
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-
-
             //check if email already exist in database
             $email_check = mysqli_query($conn, "SELECT email FROM users WHERE email='$email'");
+
             //count number of rows returned if email already exist, OW nothing will be returned
             $num_rows = mysqli_num_rows($email_check);
             if($num_rows > 0){
                 echo 'Email already exists';
             }
-
-
-
-
-
-
-
         }
         else{
           echo "Invalid email";
@@ -85,11 +76,30 @@ if(isset($_POST['btn_register'])){
         echo "email dont match";
     }
 
+    //validate other fields
+
+    if(strlen($fname) > 25 || strlen($fname) < 2){
+        echo 'firstname  must be between 2 and 25 characters';
+    }
+
+    if(strlen($lname) > 25 || strlen($lname) < 2){
+        echo 'lastname  must be between 2 and 25 characters';
+    }
+
+    if($password != $password2){
+        echo 'passwords do not match';
+    }
+    else{
+        if(preg_match('/[^A-Za-z0-9]/', $password)){
+            echo 'password can only have english characters abd numbers';
+        }
+    }
+
+    if(strlen($password) > 30 || strlen($password) < 5){
+        echo 'password  must be between 5 and 30 characters';
+    }
 }
-
 ?>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -118,7 +128,6 @@ if(isset($_POST['btn_register'])){
         <br>
         <input type="submit" name="btn_register" value="Register" />
     </form>
-
 </body>
 
 </html>
