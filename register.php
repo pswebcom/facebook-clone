@@ -59,7 +59,21 @@ if(isset($_POST['btn_register'])){
             //$email=validated version of $email
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-            //check if email already exsist
+
+
+            //check if email already exist in database
+            $email_check = mysqli_query($conn, "SELECT email FROM users WHERE email='$email'");
+            //count number of rows returned if email already exist, OW nothing will be returned
+            $num_rows = mysqli_num_rows($email_check);
+            if($num_rows > 0){
+                echo 'Email already exists';
+            }
+
+
+
+
+
+
 
         }
         else{
