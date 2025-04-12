@@ -18,7 +18,6 @@ $error_array=""; //holds error
 
 if(isset($_POST['btn_register'])){
 
-
     //firstname
     $fname = strip_tags($_POST['reg_fname']);//remove html tags
     $fname=str_replace(' ','',$fname);//remove spaces
@@ -31,28 +30,46 @@ if(isset($_POST['btn_register'])){
     $lname = ucfirst(strtolower($lname));
 
 
+
     //email
     $email = strip_tags($_POST['reg_email']);//remove html tags
     $email=str_replace(' ','',$email);//remove spaces
     $email = ucfirst(strtolower($email));
 
 
-    //emai2
+    //email2
     $email2 = strip_tags($_POST['reg_email2']);//remove html tags
     $email2=str_replace(' ','',$email2);//remove spaces
     $email2 = ucfirst(strtolower($email2));
 
 
     //password
-    $password = strip_tags($_POST['reg_password ']);//remove html tags
+    $password = strip_tags($_POST['reg_password']);//remove html tags
     $password2 = strip_tags($_POST['reg_password2']);//remove html tags
 
 
     //date
     $date = date("y-m-d");//current date
 
+    if($email==$email2){
 
+        //check if email format is valid
 
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            //$email=validated version of $email
+            $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+            //check if email already exsist
+
+        }
+        else{
+          echo "Invalid email";
+        }
+
+    }
+    else{
+        echo "email dont match";
+    }
 
 }
 
@@ -85,7 +102,7 @@ if(isset($_POST['btn_register'])){
         <br>
         <input type="password" name="reg_password2" placeholder="Confirm Password" required />
         <br>
-        <input type="submit" name="btn_register" value="Register"/>
+        <input type="submit" name="btn_register" value="Register" />
     </form>
 
 </body>
