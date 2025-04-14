@@ -156,16 +156,29 @@ if (isset($_POST['btn_register'])) {
     }
     ?>" required/>
     <br>
-    <?php if (in_array('Email already in use<br>', $error_array)) echo 'Email already in use<br>';
-    else if (in_array('Invalid email format<br>', $error_array)) echo 'Invalid email format<br>';
-    else if (in_array("Emails don't match<br>", $error_array)) echo "Emails don't match<br>"; ?>
+    <?php
+
+    if (in_array('Email already in use<br>', $error_array)) {
+        echo 'Email already in use<br>';
+    } else if (in_array('Invalid email format<br>', $error_array)) {
+        echo 'Invalid email format<br>';
+    } else if (in_array("Emails don't match<br>", $error_array)) {
+        echo "Emails don't match<br>";
+    }
+    ?>
     <input type='password' name='reg_password' placeholder='Password' required/>
     <br>
     <input type='password' name='reg_password2' placeholder='Confirm Password' required/>
     <br>
-    <?php if (in_array('Passwords do not match<br>', $error_array)) echo 'Passwords do not match<br>';
-    else if (in_array('Password can only have english characters and numbers<br>', $error_array)) echo 'Password can only have english characters and numbers<br>';
-    else if (in_array("Password  must be between 5 and 30 characters<br>", $error_array)) echo "Password  must be between 5 and 30 characters<br>"; ?>
+    <?php
+    if (in_array('Passwords do not match<br>', $error_array)) {
+        echo 'Passwords do not match<br>';
+    } else if (in_array('Password can only have english characters and numbers<br>', $error_array)) {
+        echo 'Password can only have english characters and numbers<br>';
+    } else if (in_array("Password  must be between 5 and 30 characters<br>", $error_array)) {
+        echo "Password  must be between 5 and 30 characters<br>";
+    }
+    ?>
 
     <input type='submit' name='btn_register' value='Register'/>
 </form>
