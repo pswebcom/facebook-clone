@@ -24,6 +24,7 @@ $date = '';
 $error_array = [];
 //holds errors
 
+$username="";
 
 
 
@@ -135,12 +136,24 @@ if (isset($_POST['btn_register'])) {
     while(mysqli_num_rows($check_username_query) != 0 ){
        $i++;
        $username = $username." ".$i;
-    }
+    }   
 
 
+    //random profile picture on account creation
+     $rand = rand(1,2);
+
+     if($rand==1){
+         $profile_pic="assets/profile_pics/images/defaults/head_deep_blue" ;
+     }
+     else{
+         $profile_pic="assets/profile_pics/images/defaults/head_emerald.png";
     }
 }
+
 ?>
+
+
+
 <!doctype html>
 <html lang='en'>
 
