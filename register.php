@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $conn = mysqli_connect('localhost', 'ps', 'ps', 'social');
@@ -24,6 +23,9 @@ $date = '';
 //date
 $error_array = [];
 //holds errors
+
+
+
 
 if (isset($_POST['btn_register'])) {
 
@@ -96,6 +98,7 @@ if (isset($_POST['btn_register'])) {
         array_push($error_array, 'Firstname must be between 2 and 25 characters<br>');
     }
 
+
     if (strlen($lname) > 25 || strlen($lname) < 2) {
         array_push($error_array, 'Lastname must be between 2 and 25 characters<br>');
     }
@@ -110,6 +113,31 @@ if (isset($_POST['btn_register'])) {
 
     if (strlen($password) > 30 || strlen($password) < 2) {
         array_push($error_array, 'Password  must be between 5 and 30 characters<br>');
+    }
+
+   
+
+
+   //insert into database
+    if(empty($error_array)){
+
+   //encrypt
+    $password = md5($password);
+
+    //generate unique username by concating firstname and lastname
+    $username = strtolower($fname." ".$lname);
+
+    $check_username_query = mysqli_query($conn,"SELECT username FROM users WHERE username='$username'");
+
+
+    $i = 0;
+    //if username already exists add number to username
+    while(mysqli_num_rows($check_username_query) != 0 ){
+       $i++;
+       $username = $username." ".$i;
+    }
+
+
     }
 }
 ?>
