@@ -24,8 +24,7 @@ $date = '';
 $error_array = [];
 //holds errors
 
-$username="";
-
+$username = "";
 
 
 if (isset($_POST['btn_register'])) {
@@ -75,7 +74,7 @@ if (isset($_POST['btn_register'])) {
 
         //check if email format is valid
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            //$email = validated version of $emailx
+            //$email = validated version of $email
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
             //check if email already exist in database
@@ -116,42 +115,41 @@ if (isset($_POST['btn_register'])) {
         array_push($error_array, 'Password  must be between 5 and 30 characters<br>');
     }
 
-   
+
+    //insert into database
+    if (empty($error_array)) {
+
+        //encrypt
+        $password = md5($password);
+
+        //generate unique username by concating firstname and lastname
+        $username = strtolower($fname . " " . $lname);
+
+        $check_username_query = mysqli_query($conn, "SELECT username FROM users WHERE username='$username'");
 
 
-   //insert into database
-    if(empty($error_array)){
-
-   //encrypt
-    $password = md5($password);
-
-    //generate unique username by concating firstname and lastname
-    $username = strtolower($fname." ".$lname);
-
-    $check_username_query = mysqli_query($conn,"SELECT username FROM users WHERE username='$username'");
+        $i = 0;
+        //if username already exists add number to username
+        while (mysqli_num_rows($check_username_query) != 0) {
+            $i++;
+            $username = $username . " " . $i;
+        }
 
 
-    $i = 0;
-    //if username already exists add number to username
-    while(mysqli_num_rows($check_username_query) != 0 ){
-       $i++;
-       $username = $username." ".$i;
-    }   
+        //random profile picture on account creation
+        $rand = rand(1, 2);
 
+        if ($rand == 1) {
+            $profile_pic = "assets/profile_pics/images/defaults/head_deep_blue";
+        } else {
+            $profile_pic = "assets/profile_pics/images/defaults/head_emerald.png";
+        }
 
-    //random profile picture on account creation
-     $rand = rand(1,2);
-
-     if($rand==1){
-         $profile_pic="assets/profile_pics/images/defaults/head_deep_blue" ;
-     }
-     else{
-         $profile_pic="assets/profile_pics/images/defaults/head_emerald.png";
+        $query = mysqli_query($conn,"INSERT INTO users VALUES(null,'$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no','')");
     }
+
 }
-
 ?>
-
 
 
 <!doctype html>
