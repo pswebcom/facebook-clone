@@ -119,6 +119,8 @@ if (isset($_POST['btn_register'])) {
     //insert into database
     if (empty($error_array)) {
 
+
+
         //encrypt
         $password = md5($password);
 
@@ -145,7 +147,9 @@ if (isset($_POST['btn_register'])) {
             $profile_pic = "assets/profile_pics/images/defaults/head_emerald.png";
         }
 
-        $query = mysqli_query($conn,"INSERT INTO users VALUES(null,'$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no','')");
+        $query = mysqli_query($conn, "INSERT INTO users VALUES(null,'$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no','')");
+
+        array_push($error_array, "<span style='color:#14c808;'>You are all set!Go ahead and login! </span><br>");
     }
 
 }
@@ -220,7 +224,11 @@ if (isset($_POST['btn_register'])) {
     ?>
 
     <input type='submit' name='btn_register' value='Register'/>
-</form>
+    <?php if (in_array("<span style='color:#14c808;'>You are all set!Go ahead and login! </span><br>", $error_array)) {
+        echo "<br><span style='color:#14c808;'>You are all set!Go ahead and login! </span><br>";
+    }
+    ?>
 </body>
+
 
 </html>
