@@ -120,7 +120,6 @@ if (isset($_POST['btn_register'])) {
     if (empty($error_array)) {
 
 
-
         //encrypt
         $password = md5($password);
 
@@ -150,6 +149,14 @@ if (isset($_POST['btn_register'])) {
         $query = mysqli_query($conn, "INSERT INTO users VALUES(null,'$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no','')");
 
         array_push($error_array, "<span style='color:#14c808;'>You are all set!Go ahead and login! </span><br>");
+
+        //clear session variables
+
+
+        $_SESSION['reg_fname'] = "";
+        $_SESSION['reg_lname'] = "";
+        $_SESSION['reg_email'] = "";
+        $_SESSION['reg_email2'] = "";
     }
 
 }
