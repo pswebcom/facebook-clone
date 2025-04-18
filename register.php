@@ -2,6 +2,10 @@
 
 require 'config/config.php';
 require 'includes/form_handlers/register_handler.php';
+require 'includes/form_handlers/login_handler.php';
+
+
+
 
 ?>
 
@@ -22,7 +26,7 @@ require 'includes/form_handlers/register_handler.php';
 
 <form action="register.php" method="POST">
     <input type="email" name="login_email" placeholder="Email Address"/><br>
-    <input type="password" name="login_password" placeholder="Password"/><br>
+    <input type="password" name="login-password" placeholder="Password"/><br>
     <input type="submit" name="login_btn" value="login">
 
 </form>

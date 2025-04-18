@@ -9,8 +9,10 @@ if(isset($_POST['login_btn'])){
 
 	$password = md5($_POST['login-password']);
 
+	echo $password;
 
-	$check_db_query = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' AND password ='$password'");
+
+	$check_db_query = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' AND password='$password'");
 	$result_rows= mysqli_num_rows($check_db_query);
 
 	if($result_rows==1){
