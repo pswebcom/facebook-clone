@@ -9,7 +9,7 @@ require 'includes/form_handlers/login_handler.php';
 
 ?>
 
-
+    
 <!doctype html>
 <html lang='en'>
 
@@ -25,9 +25,19 @@ require 'includes/form_handlers/login_handler.php';
 
 
 <form action="register.php" method="POST">
-    <input type="email" name="login_email" placeholder="Email Address"/><br>
+    <input type="email" name="login_email" placeholder="Email Address" value="<?php
+    if (isset($_SESSION['login_email'])) {
+        echo($_SESSION['login_email']);
+    }
+    ?>" required/><br>
+
+
     <input type="password" name="login-password" placeholder="Password"/><br>
     <input type="submit" name="login_btn" value="login">
+
+    <?php if(in_array("Email or Password was incorrect<br>",$error_array)) echo "Email or Password was incorrect<br>";
+
+     ?>
 
 </form>
 
