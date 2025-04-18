@@ -20,13 +20,15 @@ if(isset($_POST['login_btn'])){
 		//access results from query and store it in $row
 		$row = mysqli_fetch_array($check_db_query); 
 
+
 		$username = $row['username'];
+
+		
 
 		$_SESSION['username'] = $username;
 
 		header("Location:index.php");
 
-		exit();
 	}
 
 	else{
