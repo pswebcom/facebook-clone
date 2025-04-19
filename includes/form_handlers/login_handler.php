@@ -9,9 +9,6 @@ if(isset($_POST['login_btn'])){
 
 	$password = md5($_POST['login-password']);
 
-	echo $password;
-
-
 	$check_db_query = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' AND password='$password'");
 	$result_rows= mysqli_num_rows($check_db_query);
 
@@ -24,12 +21,14 @@ if(isset($_POST['login_btn'])){
 		$_SESSION['username'] = $username;
 
 
+
         //check if user is logged out
 		$user_account_closed_query = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' AND user_closed='yes'");
 		if(mysqli_num_rows($user_account_closed_query) == 1){
 			//sign in user
           $reopen_account = mysqli_query($conn,"UPDATE users SET user_closed='no' WHERE email='$email'");
 		}
+
 
 		header("Location:index.php");
 

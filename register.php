@@ -16,6 +16,8 @@ require 'includes/form_handlers/login_handler.php';
     <title>Welcome to Swirlfeed</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/Register_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
 
