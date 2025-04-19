@@ -31,8 +31,6 @@ if(isset($_POST['login_btn'])){
           $reopen_account = mysqli_query($conn,"UPDATE users SET user_closed='no' WHERE email='$email'");
 		}
 
-
-
 		header("Location:index.php");
 
 	}
