@@ -1,3 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    line-height: 17px;
+    background-color: #e6eaeb;
+}
+
+
 .top-bar {
     width: 100%;
     min-width: 1050px;
@@ -9,6 +22,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 10;
 }
 
 nav {
@@ -25,6 +40,32 @@ nav {
 
 .fa:hover {
     color:orange;
+}
+
+/*index page wrapper*/
+.wrapper {
+    margin: 0 auto;
+    top: 50px;
+    position: relative;
+    padding: 0 10px;
+    width: 75%;
+    min-width: 950px;
+    border: 1px solid red;
+}
+
+.column {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #d3d3d3;
+    z-index: -1;
+    display: flex;
+}
+
+.user-details {
+    width: 250px;
+    margin-bottom: 20px;
 }
 
 

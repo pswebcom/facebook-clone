@@ -21,6 +21,11 @@ include 'includes/header.php';
     <a href="#"><img src="<?php echo $user['profile_pic']; ?>" alt=""></a>
 </div>
 
+
+</div>
+<!--wrapper class ends here-->
+
+
 </body>
 
 </html>

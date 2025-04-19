@@ -23,7 +23,7 @@ require 'includes/form_handlers/login_handler.php';
 <body>
 
 
-<div class="wrapper">
+<div class="wrapper-register">
     <div class="login-box">
         <form action="register.php" method="POST">
             <input type="email" name="login_email" placeholder="Email Address" value="<?php
