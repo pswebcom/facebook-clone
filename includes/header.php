@@ -4,6 +4,10 @@ require 'config/config.php';
 //it's set in login form when not failed
 if(isset($_SESSION['username'])){
     $userLoggedIn = $_SESSION['username'];
+
+    //get user details from db
+    $userDetailsQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$userLoggedIn'");
+    $user= mysqli_fetch_array($userDetailsQuery);
 }
 else{
     header("Location: register.php");
@@ -39,6 +43,8 @@ else{
         <a href="#"><i class="fa fa-bell fa-lg"></i></a>
         <a href="#"><i class="fa fa-users fa-lg"></i></a>
         <a href="#"><i class="fa fa-cog fa-lg"></i></a>
+        <a href="#"><i class="fa fa-lg"><?php echo $user['first_name']; ?></i></a>
+
     </nav>
 </div>
 
