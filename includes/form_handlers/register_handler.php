@@ -136,9 +136,9 @@ if (isset($_POST['btn_register'])) {
         $rand = rand(1, 2);
 
         if ($rand == 1) {
-            $profile_pic = "assets/profile_pics/images/defaults/head_deep_blue";
+            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue";
         } else {
-            $profile_pic = "assets/profile_pics/images/defaults/head_emerald.png";
+            $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
         }
 
         $query = mysqli_query($conn, "INSERT INTO users VALUES(null,'$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no','')");

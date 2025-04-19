@@ -8,6 +8,7 @@ if(isset($_SESSION['username'])){
     //get user details from db
     $userDetailsQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$userLoggedIn'");
     $user= mysqli_fetch_array($userDetailsQuery);
+    //var_dump($user);
 }
 else{
     header("Location: register.php");

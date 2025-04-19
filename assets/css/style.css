@@ -11,13 +11,20 @@
     align-items: center;
 }
 
+nav {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .fa {
+    font-size: 1.7rem;
     color: #fff;
 }
 
-
 .fa:hover {
-    border-bottom: 3px solid orange;
+    color:orange;
 }
 
 

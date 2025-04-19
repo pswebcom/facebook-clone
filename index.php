@@ -1,9 +1,5 @@
 <?php
 include 'includes/header.php';
-
-//reset and destroy all sessions
-//after this $_Session[username] in header.php will be empty
-//session_destroy();
 ?>
 
 
@@ -20,6 +16,10 @@ include 'includes/header.php';
 </head>
 
 <body>
+
+<div class="user-details column">
+    <a href="#"><img src="<?php echo $user['profile_pic']; ?>" alt=""></a>
+</div>
 
 </body>
 
