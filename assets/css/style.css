@@ -1,0 +1,23 @@
+.top-bar {
+    width: 100%;
+    min-width: 1050px;
+    height: 40px;
+    background-color: #20aae5;
+    border-bottom: 5px solid #1894ca;
+    margin: 0 0 10px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa {
+    color: #fff;
+}
+
+
+.fa:hover {
+    border-bottom: 3px solid orange;
+}
+
+
