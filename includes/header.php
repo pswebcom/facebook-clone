@@ -2,15 +2,14 @@
 require 'config/config.php';
 
 //it's set in login form when not failed
-if(isset($_SESSION['username'])){
+if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
 
     //get user details from db
     $userDetailsQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$userLoggedIn'");
-    $user= mysqli_fetch_array($userDetailsQuery);
+    $user = mysqli_fetch_array($userDetailsQuery);
     //var_dump($user);
-}
-else{
+} else {
     header("Location: register.php");
 }
 ?>

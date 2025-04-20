@@ -23,7 +23,7 @@ include 'includes/header.php';
     </div>
 
     <div class="right">
-        <a class="user-info name" href="#"><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
+        <a class="user-info name" href="index.php"><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
         <i class="user-info">Posts:<?php echo $user['num_posts'] ?></i>
         <i class="user-info">Likes:<?php echo $user['num_likes'] ?></i>
     </div>
@@ -32,8 +32,8 @@ include 'includes/header.php';
 
 <div class="main-column column">
     <form action="index.php" class="post_form" method="POST">
-        <textarea name="post_text" id="post_text" >Got something to say...?</textarea>
-        <input type="button" name="post" id="post_button" value="Post">
+        <textarea name="post_text" id="post_texts" rows="4" cols="50"></textarea>
+        <input type="submit" name="post" id="post_button" value="Post"/>
     </form>
 </div>
 
