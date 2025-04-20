@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 
 body {
     line-height: 17px;
@@ -61,11 +65,28 @@ nav {
     box-shadow: 2px 2px 1px #d3d3d3;
     z-index: -1;
     display: flex;
+    justify-content: space-between;
 }
 
 .user-details {
-    width: 250px;
+    width: 300px;
     margin-bottom: 20px;
+}
+
+.user-details .left {
+    width: 125px;
+}
+
+.user-details .right {
+    width: 175px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.user-info {
+    display: block;
+    margin-bottom: 10px;
+    margin-top:4px ;
 }
 
 
