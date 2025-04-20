@@ -55,6 +55,8 @@ nav {
     width: 75%;
     min-width: 950px;
     border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
 }
 
 .column {
@@ -69,7 +71,7 @@ nav {
 }
 
 .user-details {
-    width: 300px;
+    width: 29.5%;
     margin-bottom: 20px;
 }
 
@@ -89,4 +91,13 @@ nav {
     margin-top:4px ;
 }
 
+ a.name {
+    color: #20aae5;
+}
+
+ .main-column {
+     width: 69.5%;
+     margin-bottom: 20px;
+
+ }
 
