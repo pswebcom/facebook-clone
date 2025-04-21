@@ -21,7 +21,6 @@ if(isset($_POST['login_btn'])){
 		$_SESSION['username'] = $username;
 
 
-
         //check if user is logged out
 		$user_account_closed_query = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' AND user_closed='yes'");
 		if(mysqli_num_rows($user_account_closed_query) == 1){

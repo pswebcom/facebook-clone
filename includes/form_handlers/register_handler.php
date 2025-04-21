@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 //declaring variables to prevent errors
@@ -67,17 +67,18 @@ if (isset($_POST['btn_register'])) {
 
 
     if ($email == $email2) {
+
         //check if email format is valid
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
             //$email = validated version of $email
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-
-
             //check if email already exist in database
-            $email_check = mysqli_query($conn, "SELECT email FROM users WHERE email='$email'");
+            $email_check_query = mysqli_query($conn, "SELECT email FROM users WHERE email='$email'");
+
             //count number of rows returned if email already exist, Or nothing will be returned
-            $num_rows = mysqli_num_rows($email_check);
+            $num_rows = mysqli_num_rows($email_check_query);
             if ($num_rows > 0) {
                 //store in error array
                 array_push($error_array, 'Email already in use<br>');
@@ -136,7 +137,7 @@ if (isset($_POST['btn_register'])) {
         $rand = rand(1, 2);
 
         if ($rand == 1) {
-            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue";
+            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
         } else {
             $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
         }
@@ -155,4 +156,4 @@ if (isset($_POST['btn_register'])) {
 }
 
 
- ?>
+?>
