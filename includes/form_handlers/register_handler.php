@@ -119,7 +119,7 @@ if (isset($_POST['btn_register'])) {
         $password = md5($password);
 
         //generate unique username by concating firstname and lastname
-        $username = strtolower($fname . " " . $lname);
+        $username = strtolower($fname . "_" . $lname);
 
         $check_username_query = mysqli_query($conn, "SELECT username FROM users WHERE username='$username'");
 

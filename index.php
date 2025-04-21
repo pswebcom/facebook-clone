@@ -19,11 +19,11 @@ include 'includes/header.php';
 
 <div class="user-details column">
     <div class="left">
-        <a href="#"><img src="<?php echo $user['profile_pic']; ?>" alt=""></a>
+        <a href="<?php echo $userLoggedIn; ?>"><img src="<?php echo $user['profile_pic']; ?>" alt=""></a>
     </div>
 
     <div class="right">
-        <a class="user-info name" href="index.php"><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
+        <a class="user-info name" href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
         <i class="user-info">Posts:<?php echo $user['num_posts'] ?></i>
         <i class="user-info">Likes:<?php echo $user['num_likes'] ?></i>
     </div>
