@@ -1,26 +1,24 @@
 <?php
 
 namespace classes;
-
 class User
 {
-
     private $user;
-    private $con;
+    private $conn;
 
-    public function __construct($user, $con)
+    public function __construct($conn,$user)
     {
-        $this->con = $con;
-        $userDetailQuery = mysqli_query($con, "SELECT * FROM users WHERE username = '$user'");
+        $this->conn = $conn;
+        $userDetailQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$user'");
         $this->user = mysqli_fetch_array($userDetailQuery);
     }
 
-    function getFirstAndLastName()
+    public function getFirstAndLastName()
     {
         $username = $this->user['username'];
-        $query = mysqli_query(this->$con, "SELECT firstname, lastname FROM users WHERE username = '$username'");
+        $query = mysqli_query($this->conn, "SELECT first_name, last_name FROM users WHERE username = '$username'");
         $row = mysqli_fetch_array($query);
-        return $this->user["firstName"] . " " . $this->user["lastName"];
+        return $row["first_name"] . " " . $row["last_name"];
     }
 
 }

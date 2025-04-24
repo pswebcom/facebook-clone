@@ -1,5 +1,9 @@
 <?php
+
+use classes\User;
+
 include 'includes/header.php';
+include 'includes/classes/User.php';
 ?>
 
 
@@ -21,7 +25,8 @@ include 'includes/header.php';
     </div>
 
     <div class="right">
-        <a class="user-info name" href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
+        <a class="user-info name"
+           href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
         <i class="user-info">Posts:<?php echo $user['num_posts'] ?></i>
         <i class="user-info">Likes:<?php echo $user['num_likes'] ?></i>
     </div>
@@ -33,8 +38,14 @@ include 'includes/header.php';
         <textarea name="post_text" id="post_texts" rows="4" cols="50"></textarea>
         <input type="submit" name="post" id="post_button" value="Post"/>
     </form>
-</div>
 
+    <?php
+    $userObj = new User($conn, $userLoggedIn);
+    echo $userObj->getFirstAndLastName();
+    ?>
+
+
+</div>
 
 </div>
 <!--wrapper class ends here-->
