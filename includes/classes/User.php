@@ -7,7 +7,7 @@ class User
 
     private $user;
     private $con;
-``
+
     public function __construct($user, $con)
     {
         $this->con = $con;
